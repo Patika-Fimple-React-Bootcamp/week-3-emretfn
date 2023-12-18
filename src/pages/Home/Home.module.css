@@ -1,0 +1,17 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+}
