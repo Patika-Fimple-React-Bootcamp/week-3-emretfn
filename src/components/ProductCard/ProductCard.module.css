@@ -18,6 +18,10 @@
 .productCard h2 {
   font-size: 1.25rem;
   font-weight: 500;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .productCard p {
