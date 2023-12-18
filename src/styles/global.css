@@ -4,6 +4,17 @@
   --border: hsl(240 5.9% 90%);
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Inter", sans-serif;
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
 }
