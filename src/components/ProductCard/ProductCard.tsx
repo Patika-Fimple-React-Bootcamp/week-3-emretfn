@@ -17,7 +17,7 @@ const ProductCard = ({ product, onEdit }: ProductCardProps) => {
       <p>${product.price}</p>
       <div className={styles.buttonGroup}>
         <ProductEditModal product={product} onSave={onEdit} />
-        <Button>
+        <Button variant="danger">
           <Icons.trash className="buttonIcon" />
           Delete
         </Button>
