@@ -1,3 +1,4 @@
+import React from "react";
 import { Product } from "../../types";
 import Button from "../Button/Button";
 import { Icons } from "../Icons/Icons";
@@ -10,21 +11,23 @@ interface ProductCardProps {
   onDelete: (productId: number) => void;
 }
 
-const ProductCard = ({ product, onEdit, onDelete }: ProductCardProps) => {
-  return (
-    <div className={styles.productCard}>
-      <img src={product.image} />
-      <h2 title={product.title}>{product.title}</h2>
-      <p>${product.price}</p>
-      <div className={styles.buttonGroup}>
-        <ProductEditModal product={product} onSave={onEdit} />
-        <Button variant="danger" onClick={() => onDelete(product.id)}>
-          <Icons.trash className="buttonIcon" />
-          Delete
-        </Button>
+class ProductCard extends React.Component<ProductCardProps> {
+  render() {
+    return (
+      <div className={styles.productCard}>
+        <img src={this.props.product.image} />
+        <h2 title={this.props.product.title}>{this.props.product.title}</h2>
+        <p>${this.props.product.price}</p>
+        <div className={styles.buttonGroup}>
+          <ProductEditModal product={this.props.product} onSave={this.props.onEdit} />
+          <Button variant="danger" onClick={() => this.props.onDelete(this.props.product.id)}>
+            <Icons.trash className="buttonIcon" />
+            Delete
+          </Button>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default ProductCard;
