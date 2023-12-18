@@ -7,9 +7,10 @@ import styles from "./ProductCard.module.css";
 interface ProductCardProps {
   product: Product;
   onEdit: (product: Product) => void;
+  onDelete: (productId: number) => void;
 }
 
-const ProductCard = ({ product, onEdit }: ProductCardProps) => {
+const ProductCard = ({ product, onEdit, onDelete }: ProductCardProps) => {
   return (
     <div className={styles.productCard}>
       <img src={product.image} />
@@ -17,7 +18,7 @@ const ProductCard = ({ product, onEdit }: ProductCardProps) => {
       <p>${product.price}</p>
       <div className={styles.buttonGroup}>
         <ProductEditModal product={product} onSave={onEdit} />
-        <Button variant="danger">
+        <Button variant="danger" onClick={() => onDelete(product.id)}>
           <Icons.trash className="buttonIcon" />
           Delete
         </Button>

@@ -20,6 +20,13 @@ const ProductList = () => {
     setProducts((prev) => prev.map((p) => (p.id === product.id ? product : p)));
   };
 
+  const handleDelete = (productId: number) => {
+    const isConfirmed = confirm("Are you sure you want to delete this product?");
+    if (isConfirmed) {
+      setProducts((prev) => prev.filter((p) => p.id !== productId));
+    }
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -27,7 +34,12 @@ const ProductList = () => {
   return (
     <div className={styles.productList}>
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} onEdit={handleEdit} />
+        <ProductCard
+          key={product.id}
+          product={product}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+        />
       ))}
     </div>
   );
