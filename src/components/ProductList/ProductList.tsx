@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import styles from "./ProductList.module.css";
 import { Product } from "../../types";
+import { toast } from "sonner";
 
 const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -18,6 +19,7 @@ const ProductList = () => {
 
   const handleEdit = (product: Product) => {
     setProducts((prev) => prev.map((p) => (p.id === product.id ? product : p)));
+    toast.success("Product updated successfully!");
   };
 
   const handleDelete = (productId: number) => {
@@ -25,6 +27,7 @@ const ProductList = () => {
     if (isConfirmed) {
       setProducts((prev) => prev.filter((p) => p.id !== productId));
     }
+    toast.success("Product deleted successfully!");
   };
 
   useEffect(() => {
