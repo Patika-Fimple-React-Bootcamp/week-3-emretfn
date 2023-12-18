@@ -45,3 +45,9 @@
 .DialogCloseButton:focus {
   background-color: var(--border);
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

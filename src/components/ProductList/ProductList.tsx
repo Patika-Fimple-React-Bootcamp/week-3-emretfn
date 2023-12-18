@@ -16,6 +16,10 @@ const ProductList = () => {
     }
   };
 
+  const handleEdit = (product: Product) => {
+    setProducts((prev) => prev.map((p) => (p.id === product.id ? product : p)));
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -23,7 +27,7 @@ const ProductList = () => {
   return (
     <div className={styles.productList}>
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard key={product.id} product={product} onEdit={handleEdit} />
       ))}
     </div>
   );
